@@ -110,4 +110,5 @@ python3 zabbix_weixin_kaping.py 你的企业号用户名 1 测试
 ```
 查看日志输出
 token获取失败，请检查key等配置信息
+
 ![image](https://typ.oss-cn-shanghai.aliyuncs.com/markdown/2017/10/15.png)
