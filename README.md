@@ -3,6 +3,9 @@
 ### 环境要求
 
 #### python3 zabbix 3.4 微信企业号
+##### 我刚刚学习python没多久，写的不是很好大神勿喷n(*≧▽≦*)n
+个人博客
+https://www.aityp.com
 
 ---
 zabbix 从3.4版本后开始支持问题确认通知，效果如下
@@ -89,3 +92,22 @@ chown zabbix:zabbix /tmp/weixin_zabbix.log
 
 ![image](https://typ.oss-cn-shanghai.aliyuncs.com/markdown/2017/10/10.png)
 
+
+### LOG
+log目录在`/tmp/weixin_zabbix.log`
+在这里可以看到每条消息的发送情况
+![image](https://typ.oss-cn-shanghai.aliyuncs.com/markdown/2017/10/13.png)
+
+### QQ:1500698928
+### 个人微信
+![image](https://typ.oss-cn-shanghai.aliyuncs.com/markdown/2017/10/14.jpg)
+
+### 问题调试方法
+如果你的微信收不到消息可以使用以下方法进行调试
+命令行调试脚本
+```
+python3 zabbix_weixin_kaping.py 你的企业号用户名 1 测试
+```
+查看日志输出
+token获取失败，请检查key等配置信息
+![image](https://typ.oss-cn-shanghai.aliyuncs.com/markdown/2017/10/15.png)
