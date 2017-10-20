@@ -21,7 +21,7 @@ Purl="https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token="
 headers = {'Content-Type': 'application/json'}
 Time=time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
 
-def _log(info):
+def log(info):
     #注意权限,否则写不进去日志
     file = "/tmp/weixin_zabbix.log"
     if os.path.isfile(file) == False:
@@ -31,8 +31,22 @@ def _log(info):
     f.write(info)
     f.close()
 
-def msg(user,msg,token):
-     weixin_msg = {
+def get_token():
+    try:
+        r = requests.get(Gtoken)
+        json_data = json.loads(r.content.decode())
+        token = json_data["access_token"]
+        return token
+
+    except Exception as e:
+        #print("token获取失败!",e)
+        log(Time + ":token获取失败!" + "\n")
+        exit(1)
+
+
+def msg(user,msg):
+    token=get_token()
+    weixin_msg = {
          "touser" : user,
          "toparty" : "PartyID1 | PartyID2",
          "totag" : "TagID1 | TagID2",
@@ -45,17 +59,14 @@ def msg(user,msg,token):
              "btntxt":"更多"
           }
       }
-     push = requests.post(Purl + token,data=json.dumps(weixin_msg),headers=headers)
-     code = json.loads(push.content.decode())
-     if code["errcode"] == 0:
-         _log(Time + ":消息发送成功\n")
-     else:
-         _log(Time + ":消息发送失败" + r.content.decode("utf-8") + "\n")
+    push = requests.post(Purl + token,data=json.dumps(weixin_msg),headers=headers)
+    code = json.loads(push.content.decode())
+    if code["errcode"] == 0:
+        log(Time + ":消息发送成功\n")
+    else:
+        log(Time + ":消息发送失败\n")
 
 if __name__ == '__main__':
     text = sys.argv[3]
     user = sys.argv[1]
-    r = requests.get(Gtoken)
-    json_data = json.loads(r.content.decode())
-    token = json_data["access_token"]
-    msg(user,text,token)
+    msg(user,text)
