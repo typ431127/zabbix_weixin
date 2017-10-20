@@ -1,4 +1,4 @@
-# zabbix_weixin_kapian
+# zabbix问题确认微信卡片通知
 
 ### 环境要求
 
