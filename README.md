@@ -17,7 +17,7 @@ zabbix 从3.4版本后开始支持问题确认通知，效果如下
 **pull代码**
 ```
 yum install git -y
-git clone  https://github.com/BigbigY/python-script.git
+git clone  https://github.com/typ431127/zabbix_weixin
 ```
 **更改脚本参数,需要把这三个参数改成你微信企业号的**
 
