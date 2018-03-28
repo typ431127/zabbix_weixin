@@ -62,9 +62,9 @@ def msg(user,msg):
     push = requests.post(Purl + token,data=json.dumps(weixin_msg),headers=headers)
     code = json.loads(push.content.decode())
     if code["errcode"] == 0:
-        log(Time + ":消息发送成功\n")
+        log(Time + ":消息发送成功 返回码;"+ str(code["errcode"]) + "\n")
     else:
-        log(Time + ":消息发送失败\n")
+        log(Time + ":消息发送失败 返回码:"+ str(code["errcode"]) + "\n")
 
 if __name__ == '__main__':
     text = sys.argv[3]
