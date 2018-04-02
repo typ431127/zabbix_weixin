@@ -110,5 +110,5 @@ python3 zabbix_weixin_kaping.py 你的企业号用户名 1 测试
 ```
 查看日志输出
 token获取失败，请检查key等配置信息
-
+日志里面有返回码，微信企业号错误返回码查询:http://qydev.weixin.qq.com/wiki/index.php?title=%E5%85%A8%E5%B1%80%E8%BF%94%E5%9B%9E%E7%A0%81%E8%AF%B4%E6%98%8E
 ![image](https://typ.oss-cn-shanghai.aliyuncs.com/markdown/2017/10/15.png)
