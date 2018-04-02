@@ -48,7 +48,7 @@ def msg(user,msg):
     token=get_token()
     weixin_msg = {
          "touser" : user,
-         "toparty" : "PartyID1 | PartyID2",
+         "toparty" : Toparty,
          "totag" : "TagID1 | TagID2",
          "msgtype" : "textcard",
          "agentid" : 1,
